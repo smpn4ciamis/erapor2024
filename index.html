@@ -6,18 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LINK E-RAPOR SMPN 4 CIAMIS</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
-    /* Hero Section Background */
     header {
       background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bg.jpg') no-repeat center center;
       background-size: cover;
       color: white;
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-      padding: 80px 0; /* Adjust padding to give space */
+      padding: 80px 0;
     }
 
-    /* Button Hover Effects */
     .btn-outline-primary {
       transition: all 0.3s ease, transform 0.2s ease-in-out;
       border-radius: 50px;
@@ -32,12 +30,10 @@
       box-shadow: 0 0 20px rgba(0, 123, 255, 0.8);
     }
 
-    /* Animation for Button */
     .btn-animated {
       animation: fadeIn 1s ease-in-out;
     }
 
-    /* Animation Keyframes */
     @keyframes fadeIn {
       0% {
         opacity: 0;
@@ -50,7 +46,6 @@
       }
     }
 
-    /* Marquee Styling with CSS Animation */
     .marquee-wrapper {
       position: relative;
       overflow: hidden;
@@ -78,7 +73,6 @@
       }
     }
 
-    /* Subtitle Styling */
     h2 {
       font-size: 2rem;
       font-weight: 500;
@@ -87,13 +81,11 @@
       letter-spacing: 2px;
     }
 
-    /* Responsive Styling for Buttons */
     .btn {
       font-size: 1.1rem;
       padding: 15px 25px;
     }
 
-    /* Mobile Friendly */
     @media (max-width: 768px) {
       .btn {
         padding: 12px 20px;
@@ -104,20 +96,39 @@
 </head>
 
 <body>
+
+  <!-- Toast Notification -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div id="liveToast" class="toast align-items-center text-bg-primary border-0" role="alert">
+      <div class="d-flex">
+        <div class="toast-body">
+          Jangan lupa input nilai sebelum 4 Juni 2025!
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+      </div>
+    </div>
+  </div>
+
   <!-- Header -->
   <header>
     <div class="container text-center">
+      <img src="logo-smpn4.png" alt="Logo SMPN 4 Ciamis" style="max-height: 100px;" class="mb-3">
       <h2>E-RAPOR SMPN 4 CIAMIS</h2>
       <p>TAHUN PELAJARAN 2024/2025</p>
     </div>
   </header>
 
-  <!-- Marquee Section with Smooth CSS Animation -->
+  <!-- Dark Mode Toggle -->
+  <div class="text-end p-3">
+    <button class="btn btn-sm btn-outline-secondary" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+  </div>
+
+  <!-- Marquee -->
   <div class="marquee-wrapper">
     <p class="marquee-content">Gunakan username: NIP untuk PNS/PPPK dan nama tanpa spasi untuk honorer (contoh: muhamadrafi), password: @dikdasmen123456*. <strong>Selamat bekerja!</strong></p>
   </div>
 
-
+  <!-- Modal -->
   <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -126,7 +137,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          Proses pencetakan erapor akan dimulai pada hari <strong>Rabu</strong> tanggal <strong>4 Juni 2025</strong>. Pastikan Bapak/Ibu telah menyelesaikan input nilai rapor dan kelengkapan data lainnya sebelum proses cetak rapor dilakukan. terima kasih.
+          Proses pencetakan erapor akan dimulai pada hari <strong>Rabu</strong> tanggal <strong>4 Juni 2025</strong>. Pastikan Bapak/Ibu telah menyelesaikan input nilai rapor dan kelengkapan data lainnya sebelum proses cetak rapor dilakukan. Terima kasih.
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
@@ -135,30 +146,53 @@
     </div>
   </div>
 
-  <!-- Halaman Utama -->
+  <!-- Link Section -->
   <div class="container text-center">
-
     <div class="row justify-content-center mt-5">
       <div class="col-12 col-md-4 mb-3">
-        <a href="http://hcotphen7.localto.net:1654/" class="btn btn-outline-primary w-100 btn-animated" target="_blank">LINK E-RAPOR 1</a>
+        <a href="http://hcotphen7.localto.net:1654/" class="btn btn-outline-primary w-100 btn-animated" target="_blank" rel="noopener noreferrer">LINK E-RAPOR 1</a>
       </div>
+    </div>
 
+    <!-- Video Section -->
+    <div class="mt-5">
+      <h5>Tutorial Penggunaan E-Rapor</h5>
+      <video controls width="100%" style="max-width: 600px;">
+        <source src="video-tutorial.mp4" type="video/mp4">
+        Browser Anda tidak mendukung pemutar video.
+      </video>
+    </div>
 
+    <!-- Quote Section -->
+    <div class="text-center mt-5">
+      <blockquote class="blockquote">
+        <p class="mb-0">"Pendidikan bukan persiapan untuk hidup; pendidikan adalah hidup itu sendiri." – John Dewey</p>
+      </blockquote>
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Footer -->
+  <footer class="text-center mt-5 py-3 bg-light">
+    <small>&copy; 2025 SMPN 4 Ciamis | Dinas Pendidikan Kabupaten Ciamis</small>
+  </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Automatically show the modal on page load
     window.onload = function () {
       var infoModal = new bootstrap.Modal(document.getElementById('infoModal'));
       infoModal.show();
-    }
-	
-  </script>
 
+      setTimeout(() => {
+        var toastLive = new bootstrap.Toast(document.getElementById('liveToast'));
+        toastLive.show();
+      }, 3000);
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('bg-dark');
+      document.body.classList.toggle('text-white');
+    }
+  </script>
 </body>
 
 </html>
-
