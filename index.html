@@ -119,6 +119,43 @@
     </div>
   </header>
 
+<!-- Countdown Section -->
+<div class="container text-center mt-4">
+  <div class="p-4 bg-light border border-warning rounded-4 shadow-lg d-inline-block" id="countdown-box" style="animation: fadeInScale 1s ease-in-out;">
+    <h5 class="text-warning-emphasis fw-bold mb-3">⏳ Pencetakan e-Rapor akan dimulai dalam:</h5>
+    <div id="countdown" class="fs-4 text-danger-emphasis fw-semibold"></div>
+  </div>
+</div>
+
+<style>
+  @keyframes fadeInScale {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
+
+
+<style>
+  @keyframes fadeInScale {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
+
+
+
   <!-- Dark Mode Toggle -->
   <div class="text-end p-3">
     <button class="btn btn-sm btn-outline-secondary" onclick="toggleDarkMode()">🌙 Dark Mode</button>
@@ -151,7 +188,7 @@
   <div class="container text-center">
     <div class="row justify-content-center mt-5">
       <div class="col-12 col-md-4 mb-3">
-        <a href="https://e-drivers-stress-musician.trycloudflare.com" class="btn btn-outline-primary w-100 btn-animated" target="_blank" rel="noopener noreferrer">LINK E-RAPOR 1</a>
+        <a href="https://e-drivers-stress-musician.trycloudflare.com/" class="btn btn-outline-primary w-100 btn-animated" target="_blank" rel="noopener noreferrer">LINK E-RAPOR 1</a>
      
 
  
@@ -176,9 +213,58 @@
     }
 
     function toggleDarkMode() {
+
+    // Countdown pencetakan e-Rapor
+    const targetDate = new Date("June 20, 2025 07:00:00").getTime();
+
+    const countdownInterval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        clearInterval(countdownInterval);
+        document.getElementById("countdown").innerHTML = "Pencetakan telah dimulai!";
+      } else {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("countdown").innerHTML =
+          `${days} hari ${hours} jam ${minutes} menit ${seconds} detik`;
+      }
+    }, 1000);
+
       document.body.classList.toggle('bg-dark');
       document.body.classList.toggle('text-white');
     }
+	
+	// Countdown pencetakan e-Rapor
+document.addEventListener('DOMContentLoaded', () => {
+  const countdownEl = document.getElementById("countdown");
+  const targetDate = new Date("June 20, 2025 07:00:00").getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance <= 0) {
+      countdownEl.innerHTML = "✅ Pencetakan telah dimulai!";
+      clearInterval(interval);
+    } else {
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.innerHTML = `${days} hari ${hours} jam ${minutes} menit ${seconds} detik`;
+    }
+  }
+
+  updateCountdown(); // tampilkan segera tanpa menunggu 1 detik
+  const interval = setInterval(updateCountdown, 1000);
+});
+
   </script>
 </body>
 
